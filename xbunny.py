@@ -5,12 +5,7 @@ from ggame.mathapp import MathApp
 
 
 bunnylist = []
-
-def timercallback(t):
-    """
-    Callback function to receive notification of timer expiration.
-    """
-    print("time's up at", t.time, "seconds!")
+AVERAGEOFFSPRING = 5
 
 
 class Bunny(Sprite):
@@ -40,8 +35,15 @@ class DemoApp(MathApp):
             bunnylist.append(Bunny.randomBunny(self.width, self.height))
         self.TIMER = Timer()
         # Execute timercallback after 1 seconds
-        self.TIMER.callAfter(1, timercallback)
+        self.TIMER.callAfter(1, self.timercallback)
         
+    def timercallback(self, t):
+        """
+        Callback function to receive notification of timer expiration.
+        """
+        for i in range(len(bunnylist)//2*AVERAGEOFFSPRING):
+            bunnylist.append(Bunny.randomBunny(self.width, self.height))
+
 
 
 # Create the app
