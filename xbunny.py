@@ -34,8 +34,8 @@ class DemoApp(MathApp):
         for i in range(2):
             bunnylist.append(Bunny.randomBunny(self.width, self.height))
         self.TIMER = Timer()
-        # Execute timercallback after 1 seconds
-        self.TIMER.callAfter(1, self.timercallback)
+        # Execute timercallback every 1 seconds
+        self.TIMER.callEvery(1, self.timercallback)
         
     def timercallback(self, t):
         """
