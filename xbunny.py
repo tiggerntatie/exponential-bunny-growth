@@ -14,7 +14,7 @@ class Bunny(Sprite):
 
     @classmethod
     def randomBunny(cls, width, height):
-        return cls((randint(width),randint(height)))
+        return cls((randint(0,width),randint(0,height)))
 
     def __init__(self, position):
         super().__init__(Bunny.asset, position)
