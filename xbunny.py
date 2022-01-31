@@ -5,7 +5,7 @@ from ggame.mathapp import MathApp
 
 
 bunnylist = []
-AVERAGEOFFSPRING = 5
+AVERAGEOFFSPRING = 1
 
 
 class Bunny(Sprite):
@@ -41,6 +41,7 @@ class DemoApp(MathApp):
         """
         Callback function to receive notification of timer expiration.
         """
+        print("There are", len(bunnylist), " bunnies")
         for i in range(len(bunnylist)//2*AVERAGEOFFSPRING):
             bunnylist.append(Bunny.randomBunny(self.width, self.height))
 
